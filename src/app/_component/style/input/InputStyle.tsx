@@ -21,9 +21,10 @@ const InputStyle = ({ input, onChangeValue }: Props) => {
   };
   return (
     <div>
-      <label htmlFor="id">{input.title}</label>
+      <label htmlFor={input.id}>{input.title}</label>
       <input
         id={input.id}
+        name={input.id}
         className={input.style}
         value={value}
         onChange={onChange}
