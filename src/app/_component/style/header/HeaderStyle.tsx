@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import Logo from "../../logo/Logo";
 import { ThemeSwitcher } from "../btn/ThemeSwitcher";
 import LangBtn from "../btn/LangBtn";
+import BtnStyle from "../btn/BtnStyle";
 
 interface Props {}
 
@@ -15,7 +16,9 @@ const HeaderStyle: NextPage<Props> = ({}) => {
       </ul>
       <ul>
         <li>Login</li>
-        <li>Sign in</li>
+        <li>
+          <BtnStyle opt={{ text: "Sign in" }} />
+        </li>
         <li>
           <LangBtn />
         </li>
