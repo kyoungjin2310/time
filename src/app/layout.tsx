@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "./providers";
-import { ThemeSwitcher } from "./_component/style/btn/ThemeSwitcher";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,10 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Providers>
-          <ThemeSwitcher />
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
