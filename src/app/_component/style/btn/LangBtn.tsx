@@ -1,6 +1,6 @@
 const LangBtn = ({}) => {
   return (
-    <div>
+    <button>
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
         <mask
           id="mask0_39_1287"
@@ -20,7 +20,7 @@ const LangBtn = ({}) => {
           />
         </g>
       </svg>
-    </div>
+    </button>
   );
 };
 
