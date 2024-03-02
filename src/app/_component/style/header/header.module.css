@@ -27,7 +27,24 @@
 }
 
 .left li {
-  margin-left: 40px;
+  margin-left: 47px;
+  text-align: left;
+}
+
+.left li:first-child {
+  margin-left: 56px;
+}
+
+.left li a {
+  font-family: "Pretendard", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+}
+
+.right li {
+  margin-left: 24px;
   font-family: "Pretendard", sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -36,12 +53,10 @@
   text-align: left;
 }
 
-.right li {
-  margin-left: 30px;
-  font-family: "Pretendard", sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  letter-spacing: 0em;
-  text-align: left;
+.right li.signin {
+  margin-left: 37px;
+}
+
+.right li.lang {
+  margin-left: 28px;
 }

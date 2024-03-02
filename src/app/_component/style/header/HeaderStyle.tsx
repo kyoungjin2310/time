@@ -28,10 +28,10 @@ const HeaderStyle: NextPage<Props> = ({}) => {
           <li>
             <Link href="/login">Login</Link>
           </li>
-          <li>
+          <li className={style.signin}>
             <BtnStyle opt={{ text: "Sign in" }} />
           </li>
-          <li>
+          <li className={style.lang}>
             <LangBtn />
           </li>
           <li>
