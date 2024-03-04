@@ -1,4 +1,4 @@
-import style from "@/app/_component/style/btn/btn.module.css";
+import style from "@/app/[locale]/_component/style/btn/btn.module.css";
 interface Props {
   opt?: {
     class?: string;

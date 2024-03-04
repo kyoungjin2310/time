@@ -1,5 +1,5 @@
 "use client";
-import InputStyle from "@/app/_component/style/input/InputStyle";
+import InputStyle from "@/app/[locale]/_component/style/input/InputStyle";
 import { NextPage } from "next";
 import { useState } from "react";
 
