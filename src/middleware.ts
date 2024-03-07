@@ -1,21 +1,16 @@
-import createMiddleware from "next-intl/middleware";
-import { NextRequest, NextResponse } from "next/server";
+import { createI18nMiddleware } from "next-international/middleware";
+import { NextRequest } from "next/server";
 
-const nextIntlMiddleware = createMiddleware({
-  // A list of all locales that are supported
+const I18nMiddleware = createI18nMiddleware({
   locales: ["en", "kr"],
-
-  // Used when no locale matches
   defaultLocale: "en",
-
-  localePrefix: "as-needed",
+  urlMappingStrategy: "rewrite",
 });
 
-export default function (req: NextRequest): NextResponse {
-  return nextIntlMiddleware(req);
+export function middleware(request: NextRequest) {
+  return I18nMiddleware(request);
 }
 
 export const config = {
-  // Match only internationalized pathnames
-  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
+  matcher: ["/((?!api|static|.*\\..*|_next|favicon.ico|robots.txt).*)"],
 };
