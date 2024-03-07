@@ -7,6 +7,8 @@ const nextIntlMiddleware = createMiddleware({
 
   // Used when no locale matches
   defaultLocale: "en",
+
+  localePrefix: "as-needed",
 });
 
 export default function (req: NextRequest): NextResponse {
@@ -15,5 +17,5 @@ export default function (req: NextRequest): NextResponse {
 
 export const config = {
   // Match only internationalized pathnames
-  matcher: ["/", "/(kr|en)/:path*"],
+  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
 };
