@@ -8,10 +8,13 @@ import BtnStyle from "../btn/BtnStyle";
 import style from "./header.module.css";
 import { useTheme } from "next-themes";
 import Link from "next/link";
+import { useI18n } from "@/app/messages/client";
+
 interface Props {}
 
 const HeaderStyle: NextPage<Props> = ({}) => {
   const { theme, setTheme } = useTheme();
+  const t = useI18n();
   return (
     <header className={`${style.mainHeader} ${style[`${theme}`]}`}>
       <Logo />
@@ -21,15 +24,15 @@ const HeaderStyle: NextPage<Props> = ({}) => {
             <Link href="/home">Ti:Me</Link>
           </li>
           <li>
-            <Link href="/guide">User Guide</Link>
+            <Link href="/guide">{t("userGuide")}</Link>
           </li>
         </ul>
         <ul className={`${style.flex} ${style.right}`}>
           <li>
-            <Link href="/login">Login</Link>
+            <Link href="/login">{t("login")}</Link>
           </li>
           <li className={style.signin}>
-            <BtnStyle opt={{ text: "Sign in" }} />
+            <BtnStyle opt={{ text: `${t("signIn")}` }} />
           </li>
           <li className={style.lang}>
             <LangBtn />

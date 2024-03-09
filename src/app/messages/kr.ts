@@ -1,5 +1,5 @@
 export default {
-  hello: "안녕",
-  "hello.world": "안녕!",
-  welcome: "안녕 {name}!",
+  userGuide: "유저가이드",
+  login: "로그인",
+  signIn: "회원가입",
 } as const;
