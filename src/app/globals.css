@@ -6,6 +6,7 @@
   --font-color: #495057;
   --btn-color: #4c80f1;
   --btn-font-color: #f8f9fa;
+  --hover-font-color: #ff6b6b;
 }
 :root.dark {
   --logo-color: #f0f2f4;
@@ -14,6 +15,7 @@
   --font-color: #f0f2f4;
   --btn-color: #7099f4;
   --btn-font-color: #171b1c;
+  --hover-font-color: #ff6b6b;
 }
 
 html,

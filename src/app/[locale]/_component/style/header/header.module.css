@@ -44,7 +44,8 @@
   color: var(--icon-color);
 }
 
-.right li {
+.right > li {
+  position: relative;
   margin-left: 24px;
   font-family: "Pretendard", sans-serif;
   font-size: 14px;
