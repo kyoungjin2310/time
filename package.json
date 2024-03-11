@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.2.9",
+    "@types/react-datepicker": "^6.0.3",
     "accept-language": "^3.0.18",
     "framer-motion": "^11.0.5",
     "i18next": "^23.10.0",
@@ -22,6 +23,7 @@
     "next-intl": "^3.9.1",
     "next-themes": "^0.2.1",
     "react": "^18",
+    "react-datepicker": "^6.3.0",
     "react-dom": "^18",
     "react-i18next": "^14.0.5"
   },
