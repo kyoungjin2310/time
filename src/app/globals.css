@@ -1,5 +1,6 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
 :root {
+  /*header*/
   --logo-color: #343a40;
   --header-bdb: #f1f3f5;
   --icon-color: #495057;
@@ -8,8 +9,19 @@
   --btn-font-color: #f8f9fa;
   --hover-font-color: #ff6b6b;
   --vh: 100%;
+
+  /*date picker*/
+  --date-picker-bg: #fff;
+  --date-picker-bg-bd: #f1f3f5;
+  --date-picker-bg-bs: rgba(152, 152, 152, 0.25);
+  --date-picker-color: #495057;
+  --date-picker-select: #f1f3f5;
+  --date-picker-btn: #adb5bd;
+  --date-picker-btn-bg: #f1f3f5;
+  --date-picker-disable: #adb5bd;
 }
 :root.dark {
+  /*header*/
   --logo-color: #f0f2f4;
   --header-bdb: #1e2427;
   --icon-color: #f0f2f4;
@@ -17,6 +29,16 @@
   --btn-color: #7099f4;
   --btn-font-color: #171b1c;
   --hover-font-color: #ff6b6b;
+
+  /*date picker*/
+  --date-picker-bg: #1e2427;
+  --date-picker-bg-bd: #1e2427;
+  --date-picker-bg-bs: rgba(152, 152, 152, 0);
+  --date-picker-color: #f8f9fa;
+  --date-picker-select: #2a2e31;
+  --date-picker-btn: #999fa4;
+  --date-picker-btn-bg: #2a2e31;
+  --date-picker-disable: #999fa4;
 }
 
 html,
@@ -34,6 +56,22 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+input {
+  font-size: 15px;
+  color: #222222;
+  border: none;
+  position: relative;
+  background: none;
+  z-index: 5;
+}
+
+input::placeholder {
+  color: #aaaaaa;
+}
+input:focus {
+  outline: none;
 }
 
 @media (prefers-color-scheme: dark) {
