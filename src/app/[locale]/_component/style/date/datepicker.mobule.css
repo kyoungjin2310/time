@@ -104,7 +104,7 @@ select::-ms-expand {
 }
 
 .react-datepicker__header__dropdown.react-datepicker__header__dropdown--scroll {
-  min-height: 48px;
+  min-height: 80px;
   display: flex;
   align-items: center;
   padding: 44px 49px 12px;
@@ -168,11 +168,13 @@ select::-ms-expand {
 }
 .title {
   position: absolute;
-  top: 44px;
-  left: 49px;
+  top: 32px;
+  left: 29px;
   z-index: 101;
 }
 .custom-input {
+  display: block;
+  padding: 12px 20px;
   color: var(--8, #343a40);
   font-family: "Pretendard", sans-serif;
   font-size: 18px;
