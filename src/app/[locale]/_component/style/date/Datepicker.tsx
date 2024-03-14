@@ -28,7 +28,7 @@ const Datepicker = () => {
     },
   ];
   return (
-    <div>
+    <div className="dateWrap">
       <div className="title">
         <ReactDatePicker
           locale={locale}

@@ -10,6 +10,10 @@ select::-ms-expand {
   appearance: none;
 }
 
+.dateWrap {
+  position: relative;
+}
+
 .react-datepicker__year-read-view--down-arrow,
 .react-datepicker__month-read-view--down-arrow,
 .react-datepicker__month-year-read-view--down-arrow,
@@ -175,7 +179,7 @@ select::-ms-expand {
 .custom-input {
   display: block;
   padding: 12px 20px;
-  color: var(--8, #343a40);
+  color: var(--date-picker-title-color);
   font-family: "Pretendard", sans-serif;
   font-size: 18px;
   font-style: normal;

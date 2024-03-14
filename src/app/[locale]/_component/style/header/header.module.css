@@ -3,11 +3,19 @@
   left: 0;
   top: 0;
   width: 100%;
-  padding: 0 20px;
-  display: flex;
   border-bottom: 1px solid var(--header-bdb);
-  align-items: center;
   height: 64px;
+  display: flex;
+  align-items: center;
+}
+
+.headerWrap {
+  max-width: 976px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  padding: 0 20px;
+  align-items: center;
 }
 
 .dark {

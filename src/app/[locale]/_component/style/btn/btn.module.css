@@ -15,7 +15,7 @@
 .langWrap {
   position: absolute;
   width: 120px;
-  margin-top: 4px;
+  margin-top: 10px;
   left: -48px;
   border-radius: 8px;
   filter: drop-shadow(2px 2px 8px rgba(152, 152, 152, 0.25));

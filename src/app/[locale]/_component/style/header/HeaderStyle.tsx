@@ -17,31 +17,33 @@ const HeaderStyle: NextPage<Props> = ({}) => {
   const t = useI18n();
   return (
     <header className={`${style.mainHeader} ${style[`${theme}`]}`}>
-      <Logo />
-      <nav className={style.gnb}>
-        <ul className={`${style.flex} ${style.left}`}>
-          <li>
-            <Link href="/home">Ti:Me</Link>
-          </li>
-          <li>
-            <Link href="/guide">{t("userGuide")}</Link>
-          </li>
-        </ul>
-        <ul className={`${style.flex} ${style.right}`}>
-          <li>
-            <Link href="/login">{t("login")}</Link>
-          </li>
-          <li className={style.signin}>
-            <BtnStyle opt={{ text: `${t("signIn")}` }} />
-          </li>
-          <li className={style.lang}>
-            <LangBtn />
-          </li>
-          <li>
-            <ThemeSwitcher />
-          </li>
-        </ul>
-      </nav>
+      <div className={style.headerWrap}>
+        <Logo />
+        <nav className={style.gnb}>
+          <ul className={`${style.flex} ${style.left}`}>
+            <li>
+              <Link href="/home">Ti:Me</Link>
+            </li>
+            <li>
+              <Link href="/guide">{t("userGuide")}</Link>
+            </li>
+          </ul>
+          <ul className={`${style.flex} ${style.right}`}>
+            <li>
+              <Link href="/login">{t("login")}</Link>
+            </li>
+            <li className={style.signin}>
+              <BtnStyle opt={{ text: `${t("signIn")}` }} />
+            </li>
+            <li className={style.lang}>
+              <LangBtn />
+            </li>
+            <li>
+              <ThemeSwitcher />
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
   );
 };

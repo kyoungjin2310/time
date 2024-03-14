@@ -19,6 +19,7 @@
   --date-picker-btn: #adb5bd;
   --date-picker-btn-bg: #f1f3f5;
   --date-picker-disable: #adb5bd;
+  --date-picker-title-color: #343a40;
 }
 :root.dark {
   /*header*/
@@ -39,6 +40,7 @@
   --date-picker-btn: #999fa4;
   --date-picker-btn-bg: #2a2e31;
   --date-picker-disable: #999fa4;
+  --date-picker-title-color: #f8f9fa;
 }
 
 html,
