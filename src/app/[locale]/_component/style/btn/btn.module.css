@@ -12,6 +12,7 @@
   color: var(--btn-font-color);
 }
 
+/*lang btn*/
 .langWrap {
   position: absolute;
   width: 120px;
@@ -38,4 +39,16 @@
 
 .langWrap button:hover {
   color: var(--hover-font-color);
+}
+
+/*main btn*/
+.mainBtn {
+  max-width: 246px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 8px;
+  background: var(--main-btn-bg);
 }
