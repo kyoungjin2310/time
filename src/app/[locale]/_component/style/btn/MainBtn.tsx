@@ -3,7 +3,7 @@ import { useI18n } from "@/app/messages/client";
 import style from "@/app/[locale]/_component/style/btn/btn.module.css";
 import { useState } from "react";
 const MainBtn = () => {
-  const [active, setActive] = useState<number | null>(null);
+  const [active, setActive] = useState<number | null>(1);
   const t = useI18n();
   const [dataTabs, setDataTabs] = useState<TabLink>([
     {
@@ -25,7 +25,7 @@ const MainBtn = () => {
       <a
         href="#"
         onClick={() => navigate(id)}
-        className={isActive ? "active" : ""}
+        className={isActive ? "active" : undefined}
       >
         {tabTitle}
       </a>
