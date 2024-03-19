@@ -3,3 +3,7 @@
   margin: auto;
   padding-top: 152px;
 }
+
+.df {
+  display: flex;
+}

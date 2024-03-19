@@ -22,13 +22,12 @@ const MainBtn = () => {
 
   const NavLink = ({ id, tabTitle, isActive, onClick }: TabNavLink) => {
     return (
-      <a
-        href="#"
+      <button
         onClick={() => navigate(id)}
-        className={isActive ? "active" : undefined}
+        className={isActive ? style.active : undefined}
       >
         {tabTitle}
-      </a>
+      </button>
     );
   };
 

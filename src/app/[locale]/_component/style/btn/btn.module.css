@@ -51,10 +51,35 @@
   padding: 6px;
   border-radius: 8px;
   background: var(--main-btn-bg);
+  margin-bottom: 48px;
 }
 .mainBtn li {
   display: block;
   width: 100%;
+}
+
+.mainBtn li button {
+  display: block;
+  width: 100%;
+  color: var(--7, #495057);
+  text-align: center;
+  font-family: "Pretendard", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  background-color: var(--main-btn-bg);
+  transition: background-color 0.25s ease, color 0.25s ease;
+  transition: all 1s ease-in;
+  -moz-transition: all 1s ease-in; /* Firefox 4 */
+  -webkit-transition: all 1s ease-in; /* Safari 和 Chrome */
+  -o-transition: all 1s ease-in; /* Opera */
+}
+
+.mainBtn li a.active {
+  padding: 6px;
+  border-radius: 8px;
+  background-color: #fff;
 }
 
 .mainBtn li button {
