@@ -23,6 +23,7 @@
 
   /*main*/
   --main-btn-bg: #e9ecef;
+  --main-btn-bg-active: #fff;
 }
 :root.dark {
   /*header*/
@@ -46,7 +47,8 @@
   --date-picker-title-color: #f8f9fa;
 
   /*main*/
-  --main-btn-bg: #adb5bd;
+  --main-btn-bg: #2a2e31;
+  --main-btn-bg-active: #171b1c;
 }
 
 html,

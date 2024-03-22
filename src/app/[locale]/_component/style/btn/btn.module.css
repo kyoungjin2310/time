@@ -61,6 +61,8 @@
 .mainBtn li button {
   display: block;
   width: 100%;
+  padding: 6px;
+  border-radius: 8px;
   color: var(--7, #495057);
   text-align: center;
   font-family: "Pretendard", sans-serif;
@@ -68,7 +70,6 @@
   font-style: normal;
   font-weight: 500;
   line-height: 20px;
-  background-color: var(--main-btn-bg);
   transition: background-color 0.25s ease, color 0.25s ease;
   transition: all 1s ease-in;
   -moz-transition: all 1s ease-in; /* Firefox 4 */
@@ -77,8 +78,6 @@
 }
 
 .mainBtn li a.active {
-  padding: 6px;
-  border-radius: 8px;
   background-color: #fff;
 }
 
@@ -92,16 +91,11 @@
   font-style: normal;
   font-weight: 500;
   line-height: 20px;
-  background-color: var(--main-btn-bg);
-  transition: background-color 0.25s ease, color 0.25s ease;
-  transition: all 1s ease-in;
-  -moz-transition: all 1s ease-in; /* Firefox 4 */
-  -webkit-transition: all 1s ease-in; /* Safari 和 Chrome */
-  -o-transition: all 1s ease-in; /* Opera */
+  padding: 6px;
+  border-radius: 8px;
+  transition: 0.25s ease;
 }
 
 .mainBtn li button.active {
-  padding: 6px;
-  border-radius: 8px;
   background-color: #fff;
 }

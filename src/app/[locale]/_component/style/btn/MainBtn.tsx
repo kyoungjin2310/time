@@ -1,7 +1,9 @@
 "use client";
 import { useI18n } from "@/app/messages/client";
 import style from "@/app/[locale]/_component/style/btn/btn.module.css";
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
+import { motion } from "framer-motion";
+import { TabLink, TabNavLink } from "@/app/model/btn";
 const MainBtn = () => {
   const [active, setActive] = useState<number | null>(1);
   const t = useI18n();
@@ -20,18 +22,38 @@ const MainBtn = () => {
     },
   ]);
 
+  const cardVariant = {
+    active: {
+      opacity: 1,
+      backgroundColor: "var(--main-btn-bg-active)",
+      transition: {
+        duration: 0.25,
+      },
+    },
+    inactive: {
+      opacity: 1,
+      backgroundColor: "none",
+      transition: {
+        duration: 0.25,
+      },
+    },
+  };
+
   const NavLink = ({ id, tabTitle, isActive, onClick }: TabNavLink) => {
     return (
-      <button
-        onClick={() => navigate(id)}
-        className={isActive ? style.active : undefined}
+      <motion.button
+        onClick={(e) => navigate(e, id)}
+        variants={cardVariant}
+        animate={isActive ? "active" : "inactive"}
+        initial="inactive"
       >
         {tabTitle}
-      </button>
+      </motion.button>
     );
   };
 
-  const navigate = (id: number | null) => {
+  const navigate = (e: MouseEvent<HTMLButtonElement>, id: number | null) => {
+    e?.preventDefault();
     setActive(id);
   };
 

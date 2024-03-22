@@ -1,14 +1,16 @@
-type TabLink = TabLinkList[];
-type TabLinkList = {
+import { MouseEvent } from "react";
+
+export type TabLink = TabLinkList[];
+export type TabLinkList = {
   id: number;
   tabTitle: string;
   tabClass: string;
   tabClicked: boolean;
 };
 
-type TabNavLink = {
+export type TabNavLink = {
   id: number | null;
   tabTitle: string;
   isActive: boolean;
-  onClick: (id: number | null) => void;
+  onClick: (e: MouseEvent<HTMLButtonElement>, id: number | null) => void;
 };
