@@ -18,23 +18,23 @@ const TimePicker = ({ time }: Props) => {
   };
 
   const [timeSelect, setTimeSelect] = useState({
-    hoursT: `${String(time).substring(1, 2)}`,
-    minutesT: `${String(time).substring(0, 2)}`,
+    hoursT: hours.filter(
+      (n, idx) => String(n) == String(time).substring(0, 2) && idx,
+    )[0],
+    minutesT: minutes.filter(
+      (n, idx) => String(n) == String(time).substring(3, 5) && idx,
+    )[0],
   });
 
   const { hoursT, minutesT } = timeSelect;
 
   return (
     <div className={style.wrap}>
-      <TimePickerItem
-        itemArr={hours}
-        keyName="hoursT"
-        index={timeIndex(hoursT) - 1}
-      />
+      <TimePickerItem itemArr={hours} keyName="hoursT" index={Number(hoursT)} />
       <TimePickerItem
         itemArr={minutes}
         keyName="minutesT"
-        index={timeIndex(minutesT) + 3}
+        index={Number(minutesT)}
       />
     </div>
   );

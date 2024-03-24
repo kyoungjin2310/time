@@ -8,12 +8,6 @@ type Props = {
 };
 export default function TimeWrap({ date }: Props) {
   const [open, setOpen] = useState<Boolean>(false);
-  const obj = {
-    div: "Division",
-    subDiv: "SubDivision",
-    startTime: 1030,
-    endTime: 1220,
-  };
 
   const onClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -38,7 +32,7 @@ export default function TimeWrap({ date }: Props) {
             exit={{ y: -10, opacity: 0 }}
             transition={{ duration: 0.25 }}
           >
-            <TimeCard obj={obj} />
+            <TimeCard obj={date} />
           </motion.div>
         </AnimatePresence>
       }
