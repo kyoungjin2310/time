@@ -1,18 +1,47 @@
 "use client";
-import React from "react";
+import React, { MouseEvent, useState } from "react";
 import TimeCard from "../../_component/style/time/TimeCard";
+import { motion, AnimatePresence } from "framer-motion";
 
-export default function TimeWrap({}) {
+type Props = {
+  date: any;
+};
+export default function TimeWrap({ date }: Props) {
+  const [open, setOpen] = useState<Boolean>(false);
   const obj = {
     div: "Division",
     subDiv: "SubDivision",
     startTime: 1030,
     endTime: 1220,
   };
+
+  const onClick = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setOpen(!open);
+  };
   return (
     <div>
-      <h3>{}</h3>
-      <TimeCard obj={obj} />
+      <h3>{date.div}</h3>
+      <h4>{date.subDiv}</h4>
+      <div>
+        <button onClick={onClick} style={{ width: 100, height: 100 }}>
+          <p>{date.startTime}</p>
+          <p>{date.endTime}</p>
+        </button>
+      </div>
+      {
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={open ? date.div : null}
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: open ? 1 : 0 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 0.25 }}
+          >
+            <TimeCard obj={obj} />
+          </motion.div>
+        </AnimatePresence>
+      }
     </div>
   );
 }

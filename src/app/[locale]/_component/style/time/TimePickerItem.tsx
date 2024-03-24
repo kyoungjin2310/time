@@ -20,7 +20,7 @@ const TimePickerItem = ({ itemArr, keyName, index }: TimePickerItemProps) => {
         centeredSlides={true}
         className={`${keyName}`}
         onSwiper={setSwiperInstance}
-        loop={keyName === "minutesT" ? true : false}
+        loop={true}
       >
         {itemArr.map((item: string | number, i: number) => (
           <SwiperSlide key={i}>

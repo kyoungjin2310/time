@@ -7,6 +7,7 @@ import { ko } from "date-fns/locale";
 import "./datepicker.mobule.css";
 import { subDays } from "date-fns";
 import { forwardRef } from "@nextui-org/react";
+import { useQuery } from "@tanstack/react-query";
 
 const Datepicker = () => {
   const locales = useCurrentLocale();
