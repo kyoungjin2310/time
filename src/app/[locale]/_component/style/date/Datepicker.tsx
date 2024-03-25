@@ -7,9 +7,11 @@ import { ko } from "date-fns/locale";
 import "./datepicker.mobule.css";
 import { subDays } from "date-fns";
 import { forwardRef } from "@nextui-org/react";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { resolve } from "dns/promises";
 
 const Datepicker = () => {
+  const queryClient = useQueryClient();
   const locales = useCurrentLocale();
   const [startDate, setStartDate] = useState(new Date());
   const [locale, seLocale] = useState(locales == "kr" ? ko : locales);
@@ -28,13 +30,28 @@ const Datepicker = () => {
       ],
     },
   ];
+
+  const onChange = (date: Date | null) => {
+    if (date) setStartDate(date);
+  };
+
+  const onMutation = useMutation({
+    mutationFn: () => {
+      return fetch("https://jsonplaceholder.typicode.com/todos/1");
+    },
+    onSuccess: () => {
+      queryClient.setQueryData(["date"], () => {
+        return startDate;
+      });
+    },
+  });
   return (
     <div className="dateWrap">
       <div className="title">
         <ReactDatePicker
           locale={locale}
           selected={startDate}
-          onChange={(date) => date && setStartDate(date)}
+          onChange={(date) => onChange(date)}
           dateFormat="MMMM yyyy"
           showMonthYearPicker
           customInput={<CustomInput />}
@@ -43,8 +60,8 @@ const Datepicker = () => {
       <div className="main">
         <ReactDatePicker
           selected={startDate}
-          onChange={(date) => date && setStartDate(date)}
-          onMonthChange={(date) => date && setStartDate(date)}
+          onChange={(date) => onChange(date)}
+          onMonthChange={(date) => onChange(date)}
           highlightDates={highlightWithRanges}
           inline
         />

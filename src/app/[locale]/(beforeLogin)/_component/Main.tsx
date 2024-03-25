@@ -3,12 +3,14 @@ import Datepicker from "@/app/[locale]/_component/style/date/Datepicker";
 import style from "./main.module.css";
 import MainBtn from "../../_component/style/btn/MainBtn";
 import TimeWrap from "./TimeWrap";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useEffect } from "react";
 
 const Main = () => {
-  const date = "2023-03-24";
+  const queryClient = useQueryClient();
+  const date = queryClient.refetchQueries({ queryKey: ["date"] });
   const { data, error, isLoading }: any = useQuery({
-    queryKey: ["date"],
+    queryKey: ["card"],
     queryFn: async (date) => {
       return [
         {
@@ -27,6 +29,8 @@ const Main = () => {
     },
   });
 
+  console.log(date);
+
   if (error) {
     return <div>error</div>;
   }
@@ -39,9 +43,12 @@ const Main = () => {
       <MainBtn />
       <div className={style.df}>
         <Datepicker />
-        {data?.map((n: any, key: any) => (
-          <TimeWrap key={key} date={n} />
-        ))}
+        <div className={style.timewrap}>
+          <h2>{`${date}`}</h2>
+          {data?.map((n: any, key: any) => (
+            <TimeWrap key={key} date={n} />
+          ))}
+        </div>
       </div>
     </div>
   );

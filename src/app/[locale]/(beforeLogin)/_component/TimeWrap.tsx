@@ -2,7 +2,7 @@
 import React, { MouseEvent, useState } from "react";
 import TimeCard from "../../_component/style/time/TimeCard";
 import { motion, AnimatePresence } from "framer-motion";
-
+import style from "./timewrap.module.css";
 type Props = {
   date: any;
 };
@@ -14,8 +14,8 @@ export default function TimeWrap({ date }: Props) {
     setOpen(!open);
   };
   return (
-    <div>
-      <h3>{date.div}</h3>
+    <div className={style.timewrap}>
+      <h3 className={style.timeTitle}>{date.div}</h3>
       <h4>{date.subDiv}</h4>
       <div>
         <button onClick={onClick} style={{ width: 100, height: 100 }}>

@@ -1,0 +1,20 @@
+.timewrap {
+  border-radius: 8px;
+  border: 1px solid var(--1, #f1f3f5);
+  background: var(--backgrund_elevated-base-0, #fff);
+  /* time_shadow */
+  box-shadow: 2px 2px 8px 0px rgba(152, 152, 152, 0.25);
+}
+
+.timeTitle {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #bcb2ff;
+  color: #fff;
+  font-family: "Pretendard", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}

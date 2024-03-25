@@ -6,4 +6,12 @@
 
 .df {
   display: flex;
+  justify-content: space-between;
+}
+
+.timewrap {
+  padding: 20px 28px;
+  width: 464px;
+  border-radius: 16px;
+  background: var(--0, #f8f9fa);
 }
