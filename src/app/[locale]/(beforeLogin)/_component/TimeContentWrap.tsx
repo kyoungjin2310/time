@@ -7,9 +7,9 @@ import style from "./timewrap.module.css";
 
 const TimeContentWrap = () => {
   const queryClient = useQueryClient();
-  const account = useContext(MyContext);
+  const date = useContext(MyContext);
   //@ts-ignore
-  const { value, setValue } = account;
+  const { value } = date;
   const { data, error, isLoading }: any = useQuery({
     queryKey: ["card"],
     queryFn: async () => {

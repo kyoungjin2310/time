@@ -1,6 +1,6 @@
 import React, { createContext, ReactNode, useState } from "react";
 
-interface MyContextType {
+export interface MyContextType {
   value: string;
   setValue: (value: string) => void;
 }
@@ -8,7 +8,10 @@ interface MyContextType {
 interface ModalType {
   children: ReactNode;
 }
-const MyContext = createContext<MyContextType | null>(null);
+const MyContext = createContext<MyContextType>({
+  value: `${new Date()}`,
+  setValue: (value: string) => {},
+});
 
 const DateProvider = ({ children }: ModalType) => {
   const [value, setValue] = useState(`${new Date()}`);

@@ -8,15 +8,17 @@ import { ko } from "date-fns/locale";
 import "./datepicker.mobule.css";
 import { subDays } from "date-fns";
 import { forwardRef } from "@nextui-org/react";
-import { MyContext } from "@/app/[locale]/(beforeLogin)/_component/DateProvider";
+import {
+  MyContext,
+  MyContextType,
+} from "@/app/[locale]/(beforeLogin)/_component/DateProvider";
 
 const Datepicker = () => {
   const locales = useCurrentLocale();
   const [startDate, setStartDate] = useState(new Date());
   const [locale, seLocale] = useState(locales == "kr" ? ko : locales);
-  const account = useContext(MyContext);
-  //@ts-ignore
-  const { value, setValue } = account;
+  const date = useContext(MyContext);
+  const { setValue } = date;
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
     <button className="custom-input" onClick={onClick} ref={ref}>
       {value}
@@ -34,7 +36,7 @@ const Datepicker = () => {
   ];
 
   const onChange = (date: Date | null) => {
-    setValue(date);
+    setValue(`${date}`);
     if (date) setStartDate(date);
   };
 
