@@ -4,6 +4,7 @@
   background: var(--backgrund_elevated-base-0, #fff);
   /* time_shadow */
   box-shadow: 2px 2px 8px 0px rgba(152, 152, 152, 0.25);
+  width: 100%;
 }
 
 .timeTitle {

@@ -1,25 +1,23 @@
-"use client";
-import { ReactNode, createContext, useContext, useState } from "react";
-import dayjs from "dayjs";
-import "dayjs/locale/ko";
+import React, { createContext, ReactNode, useState } from "react";
 
-dayjs.locale("ko");
+interface MyContextType {
+  value: string;
+  setValue: (value: string) => void;
+}
 
-const DateContext = createContext({
-  date: `${new Date()}`,
-  setDate: (value: string) => {},
-});
-const useDateContext = () => useContext(DateContext);
+interface ModalType {
+  children: ReactNode;
+}
+const MyContext = createContext<MyContextType | null>(null);
 
-type Props = { children: ReactNode };
+const DateProvider = ({ children }: ModalType) => {
+  const [value, setValue] = useState(`${new Date()}`);
 
-const DateProvider = ({ children }: Props) => {
-  const [date, setDate] = useState(`${dayjs(new Date()).format("ddd")}`);
   return (
-    <DateContext.Provider value={{ date, setDate }}>
+    <MyContext.Provider value={{ value, setValue }}>
       {children}
-    </DateContext.Provider>
+    </MyContext.Provider>
   );
 };
 
-export { DateContext, useDateContext, DateProvider };
+export { MyContext, DateProvider };

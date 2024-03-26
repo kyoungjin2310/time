@@ -1,14 +1,14 @@
 "use client";
-import React, { MouseEvent, useState } from "react";
+import React, { MouseEvent, useContext, useState } from "react";
 import TimeCard from "../../_component/style/time/TimeCard";
 import { motion, AnimatePresence } from "framer-motion";
 import style from "./timewrap.module.css";
+import { MyContext } from "./DateProvider";
 type Props = {
   date: any;
 };
 export default function TimeWrap({ date }: Props) {
   const [open, setOpen] = useState<Boolean>(false);
-
   const onClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setOpen(!open);

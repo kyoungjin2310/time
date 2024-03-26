@@ -1,5 +1,5 @@
 "use client";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import ReactDatePicker from "react-datepicker";
 import { useCurrentLocale } from "@/app/messages/client";
 import dayjs from "dayjs";
@@ -8,16 +8,15 @@ import { ko } from "date-fns/locale";
 import "./datepicker.mobule.css";
 import { subDays } from "date-fns";
 import { forwardRef } from "@nextui-org/react";
-import { useQueryClient } from "@tanstack/react-query";
-import { useDateContext } from "@/app/[locale]/(beforeLogin)/_component/DateProvider";
+import { MyContext } from "@/app/[locale]/(beforeLogin)/_component/DateProvider";
 
 const Datepicker = () => {
-  const queryClient = useQueryClient();
   const locales = useCurrentLocale();
   const [startDate, setStartDate] = useState(new Date());
   const [locale, seLocale] = useState(locales == "kr" ? ko : locales);
-  const { date, setDate } = useDateContext();
-
+  const account = useContext(MyContext);
+  //@ts-ignore
+  const { value, setValue } = account;
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
     <button className="custom-input" onClick={onClick} ref={ref}>
       {value}
@@ -34,18 +33,13 @@ const Datepicker = () => {
     },
   ];
 
-  useEffect(() => {
-    setDate(dayjs(startDate).format("ddd"));
-  }, []);
-
   const onChange = (date: Date | null) => {
-    setDate(`${dayjs(startDate).format("ddd")}`);
+    setValue(date);
     if (date) setStartDate(date);
   };
 
   return (
     <div className="dateWrap">
-      <p>{date}</p>
       <div className="title">
         <ReactDatePicker
           locale={locale}
