@@ -4,14 +4,15 @@ import style from "./main.module.css";
 import MainBtn from "../../_component/style/btn/MainBtn";
 import TimeWrap from "./TimeWrap";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { useEffect } from "react";
+import { DateProvider, DateContext } from "./DateProvider";
+import { useContext, useEffect } from "react";
 
 const Main = () => {
   const queryClient = useQueryClient();
-  const date = queryClient.refetchQueries({ queryKey: ["date"] });
+  const { date, setDate } = useContext(DateContext);
   const { data, error, isLoading }: any = useQuery({
     queryKey: ["card"],
-    queryFn: async (date) => {
+    queryFn: async () => {
       return [
         {
           div: "Division",
@@ -29,7 +30,9 @@ const Main = () => {
     },
   });
 
-  console.log(date);
+  useEffect(() => {
+    console.log(date);
+  }, [data, setDate, DateContext]);
 
   if (error) {
     return <div>error</div>;
@@ -42,13 +45,17 @@ const Main = () => {
     <div className={style.mainContainer}>
       <MainBtn />
       <div className={style.df}>
-        <Datepicker />
-        <div className={style.timewrap}>
-          <h2>{`${date}`}</h2>
-          {data?.map((n: any, key: any) => (
-            <TimeWrap key={key} date={n} />
-          ))}
-        </div>
+        <DateProvider>
+          <>
+            <Datepicker />
+            <div className={style.timewrap}>
+              <h2>{`${date}`}</h2>
+              {data?.map((n: any, key: any) => (
+                <TimeWrap key={key} date={n} />
+              ))}
+            </div>
+          </>
+        </DateProvider>
       </div>
     </div>
   );

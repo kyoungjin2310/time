@@ -1,20 +1,23 @@
 "use client";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ReactDatePicker from "react-datepicker";
 import { useCurrentLocale } from "@/app/messages/client";
+import dayjs from "dayjs";
 import { ko } from "date-fns/locale";
 
 import "./datepicker.mobule.css";
 import { subDays } from "date-fns";
 import { forwardRef } from "@nextui-org/react";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { resolve } from "dns/promises";
+import { useQueryClient } from "@tanstack/react-query";
+import { useDateContext } from "@/app/[locale]/(beforeLogin)/_component/DateProvider";
 
 const Datepicker = () => {
   const queryClient = useQueryClient();
   const locales = useCurrentLocale();
   const [startDate, setStartDate] = useState(new Date());
   const [locale, seLocale] = useState(locales == "kr" ? ko : locales);
+  const { date, setDate } = useDateContext();
+
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
     <button className="custom-input" onClick={onClick} ref={ref}>
       {value}
@@ -31,22 +34,18 @@ const Datepicker = () => {
     },
   ];
 
+  useEffect(() => {
+    setDate(dayjs(startDate).format("ddd"));
+  }, []);
+
   const onChange = (date: Date | null) => {
+    setDate(`${dayjs(startDate).format("ddd")}`);
     if (date) setStartDate(date);
   };
 
-  const onMutation = useMutation({
-    mutationFn: () => {
-      return fetch("https://jsonplaceholder.typicode.com/todos/1");
-    },
-    onSuccess: () => {
-      queryClient.setQueryData(["date"], () => {
-        return startDate;
-      });
-    },
-  });
   return (
     <div className="dateWrap">
+      <p>{date}</p>
       <div className="title">
         <ReactDatePicker
           locale={locale}

@@ -669,6 +669,7 @@ select::-ms-expand {
   height: 100%;
   max-width: 48px;
   max-height: 48px;
+  margin-left: 1px;
   z-index: -1;
 }
 
